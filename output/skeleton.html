@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="py">
+<head>
+        <meta charset="utf-8" />
+        <title>Skeleton</title>
+        <link rel="stylesheet" href="/theme/css/main.css" />
+
+        <!--[if IE]>
+            <script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="/">n00b101 </a></h1>
+                <nav><ul>
+                    <li class="active"><a href="/category/brain-dump.html">Brain-Dump</a></li>
+                    <li><a href="/category/onboarding.html">onboarding</a></li>
+                    <li><a href="/category/skynet.html">skynet</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="/skeleton.html" rel="bookmark"
+           title="Permalink to Skeleton">Skeleton</a></h1>
+    </header>
+
+    <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2015-07-15T12:13:00-07:00">
+                Published: Wed 15 July 2015
+        </abbr>
+		<br />
+        <abbr class="modified" title="2015-07-15T12:13:00-07:00">
+                Updated: Wed 15 July 2015
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/aaron-pederson.html">Aaron Pederson</a>
+                        <a class="url fn" href="/author/nikki-martinez.html">Nikki Martinez</a>
+        </address>
+<p>In <a href="/category/brain-dump.html">Brain-Dump</a>.</p>
+
+</footer><!-- /.post-info -->      <h1>Skeleton/Self-Serve</h1>
+<h2>Description</h2>
+<p>A squence of shell scripts that create the file structure and commonalities of our ansible playbooks.</p>
+<h2>How to use</h2>
+<p><code>ruby playbook_skeleton {project_name} {required_system} {required_system} ...</code></p>
+<h2>What it does</h2>
+<ul>
+<li>Creates the main directory title 'playbook-{project_name}'</li>
+<li>Populates main directory with 'playbook.yml', 'dependencies.yml' and 'vault.yml'</li>
+<li>Creates a sub directory titled 'hosts'</li>
+<li>Populates directory with four files 'next, development, staging, production'</li>
+<li>Creates the sub directories titled {required_system}</li>
+<li>Populates each {required system} directory with 'playbook.yml' and 'dependencies.yml'</li>
+</ul>
+<p>All files are created blank, but will be updated (in the next iteration) to suite current ansible requirements for baser functionality.</p>
+    </div><!-- /.entry-content -->
+
+  </article>
+</section>
+        <section id="extras" class="body">
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>

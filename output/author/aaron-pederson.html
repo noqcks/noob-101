@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="py">
+<head>
+        <meta charset="utf-8" />
+        <title>n00b101 - Aaron Pederson</title>
+        <link rel="stylesheet" href="/theme/css/main.css" />
+
+        <!--[if IE]>
+            <script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="/">n00b101 </a></h1>
+                <nav><ul>
+                    <li><a href="/category/brain-dump.html">Brain-Dump</a></li>
+                    <li><a href="/category/onboarding.html">onboarding</a></li>
+                    <li><a href="/category/skynet.html">skynet</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+
+            <aside id="featured" class="body">
+                <article>
+                    <h1 class="entry-title"><a href="/playbooks.html">Playbooks</a></h1>
+<footer class="post-info">
+        <abbr class="published" title="2015-07-15T12:20:00-07:00">
+                Published: Wed 15 July 2015
+        </abbr>
+		<br />
+        <abbr class="modified" title="2015-07-15T12:20:00-07:00">
+                Updated: Wed 15 July 2015
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/jscott.html">JScott</a>
+                        <a class="url fn" href="/author/aaron-pederson.html">Aaron Pederson</a>
+                        <a class="url fn" href="/author/nikki-martinez.html">Nikki Martinez</a>
+        </address>
+<p>In <a href="/category/brain-dump.html">Brain-Dump</a>.</p>
+
+</footer><!-- /.post-info --><h1>Playbooks</h1>
+<p>Think of playbooks like config files that create config files. They provision infrastructure in the simplest across-the-board way.</p>
+<h2>Description</h2>
+<p>A playbook has a vault, dependecies, and infrastructure file.
+The vault file contains encyrpted variables for us to use.
+The dependecies file contains roles(Roles are specific packages)its going to need to run the playbook which it will install for us.
+The infrastucture file skeleton will create a default. It takes care of surprise! infrastructure.</p>
+<h2>Creating the playbook from scratch</h2>
+<ul>
+<li>Create a new repository</li>
+<li>Populate it with the <a href="https://github.com/aaronpederson/playbook-skeleton">Playbook Skeleton scripts</a></li>
+<li>Make sure any vault files have your master vault password in the forge bucket</li>
+</ul>
+<h2>Using Playbooks</h2>
+<h2>Testing changes to roles</h2>
+<p>Telus digital is our master copy. We must not mess with this perfect state.
+Git-ready should have forked playbook-uet to your repo.
+Clone this fork locally. Make sure you are cloning from your repo so as not to subvert the whole process.
+Test out your changes on next server. This is our sandbox to play in.
+Edit <code>/tmp/playbook-*.yaml</code> on the server to use your test role instead of telusdigital's
+Use <code>ansible-playbook</code> to rerun the playbook manually
+Once you have edited accordingly, pull request to merge to telusdigital.
+DO NOT MERGE YOUR OWN CODE!!!!</p>
+<h2>Syncing playbooks to forge</h2>
+<ul>
+<li><code>pip install s3cmd</code></li>
+<li><code>s3cmd --configure</code></li>
+<li><code>s3cmd sync playbook-foo/ s3://telusdigital-forge/foo/</code></li>
+</ul>
+<h1>Rerun forge without reprovisioning</h1>
+<ul>
+<li>SSH into the server</li>
+<li>Run <code>sudo reforge</code></li>
+</ul>
+<h2>Checking that everything ran properly</h2>
+<ul>
+<li><code>cat /var/log/cloud-init-output.log</code></li>
+</ul>
+<h2>Troubleshooting</h2>
+<p>Q: <code>fatal: [localhost] =&gt; One or more undefined variables: 'domain' is undefined</code></p>
+<p>A: Add <code>domain: teluswebteam.com</code> to your infra playbook until we get it sorted out how this can be done better globally.</p>                </article>
+            </aside><!-- /#featured -->
+                <section id="content" class="body">
+                    <h1>Other articles</h1>
+                    <hr />
+                    <ol id="posts-list" class="hfeed">
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/skeleton.html" rel="bookmark"
+                           title="Permalink to Skeleton">Skeleton</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2015-07-15T12:13:00-07:00">
+                Published: Wed 15 July 2015
+        </abbr>
+		<br />
+        <abbr class="modified" title="2015-07-15T12:13:00-07:00">
+                Updated: Wed 15 July 2015
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/aaron-pederson.html">Aaron Pederson</a>
+                        <a class="url fn" href="/author/nikki-martinez.html">Nikki Martinez</a>
+        </address>
+<p>In <a href="/category/brain-dump.html">Brain-Dump</a>.</p>
+
+</footer><!-- /.post-info -->                <p>How to use skeleton/self-serve</p>
+                <a class="readmore" href="/skeleton.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+                </ol><!-- /#posts-list -->
+<p class="paginator">
+    Page 1 / 1
+</p>
+                </section><!-- /#content -->
+        <section id="extras" class="body">
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>
