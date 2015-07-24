@@ -18,7 +18,7 @@ Then cd into the project directory and run
 ```
 pelican content
 ```
-Now cd into the content folder and run
+Now cd into the output folder and run
 ```
 python -m pelican.server
 ```
