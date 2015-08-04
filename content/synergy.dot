@@ -12,13 +12,14 @@ digraph architecture {
   subgraph cluster_github {
     label="GitHub (roles and playbooks)"
     style="dashed"
-    infrastructure [label="telusdigital.aws-infrastructure",shape="box"]
+    infrastructure [label="telusdigital/ansible-aws-infrastructure",shape="box"]
   }
 
   subgraph cluster_galaxy {
     label="Ansible Galaxy (roles)"
     style="dashed"
     roles [label="telusdigital.some-role",shape="box"]
+    galaxy_infrastructure [label="telusdigital.aws-infrastructure",shape="box"]
   }
 
   skeleton->infrastructure [label="create",lhead="cluster_github"]
