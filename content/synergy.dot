@@ -1,5 +1,5 @@
 digraph architecture {
-  label="DevOps tool synergy\n\nItalics denote manual processes\n "
+  label="DevOps tool synergy\n\nGrey connections denote manual processes\n "
   labelloc="top"
   compound="true"
 
@@ -26,13 +26,13 @@ digraph architecture {
   git->infrastructure [label="download",lhead="cluster_github"]
   infrastructure->ec2 [label="create"]
   ec2->forge [label="download"]
-  infrastructure->s3 [label=" populate ",fontname="times italic",ltail="cluster_github"]
   forge->s3 [label="download (1)"]
   forge->roles [label="download (2)",lhead="cluster_galaxy"]
   forge->ec2 [label="install (3)"]
 
-  infrastructure->roles [label="sync",fontname="times italic",ltail="cluster_github",lhead="cluster_galaxy",penwidth=0.3,color="#999999",fontcolor="#999999"]
-  infrastructure->s3 [label=" sync",fontname="times italic",ltail="cluster_github",penwidth=0.3,color="#999999",fontcolor="#999999"]
+  infrastructure->s3 [label=" populate ",ltail="cluster_github",penwidth=0.3,color="#999999",fontcolor="#999999"]
+  infrastructure->roles [label="sync",ltail="cluster_github",lhead="cluster_galaxy",penwidth=0.3,color="#999999",fontcolor="#999999"]
+  infrastructure->s3 [label=" sync",ltail="cluster_github",penwidth=0.3,color="#999999",fontcolor="#999999"]
 
   { rank=same; ec2 s3 }
 }
