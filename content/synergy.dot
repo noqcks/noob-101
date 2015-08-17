@@ -1,0 +1,38 @@
+digraph architecture {
+  label="DevOps tool synergy\n\nGrey connections denote manual processes\n "
+  labelloc="top"
+  compound="true"
+
+  skeleton [label="skeleton"]
+  git [label="git-ready"]
+  ec2 [label="EC2 Server",shape="box3d"]
+  s3 [label="Forge S3 Bucket",shape="box3d"]
+  forge [label="Forge"]
+
+  subgraph cluster_github {
+    label="GitHub (roles and playbooks)"
+    style="dashed"
+    infrastructure [label="telusdigital/ansible-aws-infrastructure",shape="box"]
+  }
+
+  subgraph cluster_galaxy {
+    label="Ansible Galaxy (roles)"
+    style="dashed"
+    roles [label="telusdigital.some-role",shape="box"]
+    galaxy_infrastructure [label="telusdigital.aws-infrastructure",shape="box"]
+  }
+
+  skeleton->infrastructure [label="create",lhead="cluster_github"]
+  git->infrastructure [label="download",lhead="cluster_github"]
+  infrastructure->ec2 [label="create"]
+  ec2->forge [label="download"]
+  forge->s3 [label="download (1)"]
+  forge->roles [label="download (2)",lhead="cluster_galaxy"]
+  forge->ec2 [label="install (3)"]
+
+  infrastructure->s3 [label=" populate ",ltail="cluster_github",penwidth=0.3,color="#999999",fontcolor="#999999"]
+  infrastructure->roles [label="sync",ltail="cluster_github",lhead="cluster_galaxy",penwidth=0.3,color="#999999",fontcolor="#999999"]
+  infrastructure->s3 [label=" sync",ltail="cluster_github",penwidth=0.3,color="#999999",fontcolor="#999999"]
+
+  { rank=same; ec2 s3 }
+}
