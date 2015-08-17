@@ -8,21 +8,18 @@ To preview the documents we need a few things:
 Get pelican markdown
 ```
 pip install pelican markdown
-
 ```
-Then clone the repo
+Then `git clone` the repo
 ```
-git clone 
+`cd` into the project directory and run
 ```
-Then cd into the project directory and run
+`pelican content`
 ```
-pelican content
+Now `cd` into the output folder and run
 ```
-Now cd into the output folder and run
-```
-python -m pelican.server
+`python -m pelican.server`
 ```
 Then visit http://localhost:8000/
 
 Tada!
-
+*happy dance*

@@ -19,17 +19,6 @@ git-ready does three things.
 
 It can be run again without concern. It will only fork and clone missing repositories.
 
-Example Workflow
-----------------
-
-1. Fork repository.
-2. Make changes.
-3. Test changes.
-4. Push changes to `origin`
-5. Submit Pull Request to `upstream`
-6. Code Review
-7. Merge
-
 Installation
 ------------
 
@@ -47,8 +36,6 @@ git-ready will search for configuration files in the following places:
 
 These will be loaded in order, and any conflicting keys will be overwritten.
 
-If no configuration is found, git-ready will enter _Interactive Setup Mode_, and attempt to guide you through setup. It will prompt for your GitHub username and password, so it can issue itself an auth token (with `repo` scope only) for future use. This will be written to the configuration file.
-
 If your GitHub account uses 2-Factor Authentication, git-ready will prompt you for a 2FA token. If you don't have 2-Factor Authentication, get it....please.
 
 OSX Installation Issues?
@@ -58,3 +45,4 @@ One of the gems used by git-ready ([Rugged](https://github.com/libgit2/rugged)),
 
 Also, private key has to be registered in keychain in order to repo cloning works.
 
+If you are still having problems, check the version of your OpenSSH. (`ssh -V`) Keychain support is in version 6.8
