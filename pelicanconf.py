@@ -7,6 +7,7 @@ SITENAME = u'n00b101'
 SITEURL = ''
 
 PATH = 'content'
+STATIC_PATHS = 'images'
 
 TIMEZONE = 'America/Vancouver'
 

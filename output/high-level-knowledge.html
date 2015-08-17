@@ -43,7 +43,13 @@
         </address>
 <p>In <a href="/category/skynet.html">skynet</a>.</p>
 
-</footer><!-- /.post-info -->      
+</footer><!-- /.post-info -->      <h2>Locally</h2>
+<p>Skeleton and git-ready will help you create and modify roles and playbooks. You will commit these to your fork on GitHub and create a Pull Request to get the changed reviewed and finalized. Finalized changes should be synced to Forge's S3 Bucket and Ansible Galaxy, which is currently manual. Additionally, you may have to use GitHub to populate the Bucket if it doesn't exist.</p>
+<p>Install <code>telusdigital.aws-infrastructure</code> via Ansible Galaxy and run the appropriate playbook's <code>infrastructure.yml</code> to start creating a remote VPC.</p>
+<h2>Remote</h2>
+<p>When an EC2 Server starts, aws-infrastructure tell AWS to tell the server to download and run Forge. The infrastructure playbook will generate EC2 tags which tell Forge what playbooks to download and install. All roles are downloaded from Ansible Galaxy. Once Forge is done, you have a fully configured server.</p>
+<p>Enjoy!</p>
+<p><img alt="Photo" src="/images/synergy.jpg" /></p>
     </div><!-- /.entry-content -->
 
   </article>
