@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="py">
+<head>
+        <meta charset="utf-8" />
+        <title>Webchannel-ci</title>
+        <link rel="stylesheet" href="/theme/css/main.css" />
+
+        <!--[if IE]>
+            <script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="/">n00b101 </a></h1>
+                <nav><ul>
+                    <li class="active"><a href="/category/brain-dump.html">Brain-Dump</a></li>
+                    <li><a href="/category/onboarding.html">onboarding</a></li>
+                    <li><a href="/category/skynet.html">skynet</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="/webchannel-ci.html" rel="bookmark"
+           title="Permalink to Webchannel-ci">Webchannel-ci</a></h1>
+    </header>
+
+    <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2015-07-15T12:33:00-07:00">
+                Published: Wed 15 July 2015
+        </abbr>
+		<br />
+        <abbr class="modified" title="2015-07-15T12:33:00-07:00">
+                Updated: Wed 15 July 2015
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/jscott.html">JScott</a>
+        </address>
+<p>In <a href="/category/brain-dump.html">Brain-Dump</a>.</p>
+
+</footer><!-- /.post-info -->      <h1>Webchannel CI</h1>
+<h2>What is it?</h2>
+<p><a href="https://bitbucket.org/webchannel/webchannel-ci/src">A Bitbucket repository</a>. There are a few major sections of code in it: email, log, project-specific, and old. There's also example data in the <code>test_data</code> path.</p>
+<p>Most things in here should probably be pulled out into a gem or something? It seems awkward to rely on a magic repo being pulled down and used. There's also a lot of cleaning up and refactoring that could be done.</p>
+<p>Apologies for everything being so messy D:</p>
+<h3>email (deprecated)</h3>
+<p>Scripts to email test results to the commit author. May or may not still work? Utilizes Amazon SES and thus requires credentials to be filled on deployment.</p>
+<p><code>log/reset-human-readable-log.rb</code> is a big part of this as well. It helps to aggregate results for the email. This could be handled a lot better though than some magic script.</p>
+<h3>log</h3>
+<p>Scripts to parse results files and log them to Centralized Logging. For example, <code>log/phpunit.rb results_directory</code> will use the class in <code>lib/phpunit_parser.rb</code> to pick apart the results and errors file from PHPUnit and send them ElasticSearch and InfluxDB.</p>
+<h3>project-specific</h3>
+<p>The idea of this was scripts that were unique to individual projects. This is actually a bad idea and makes things very opaque at the playbook level. The correct solution would be to pull all of this out and call the appropriate commands inside a Robot Sweatshop job instead. Much more transparent.</p>
+<h3>old</h3>
+<p>This contains old scripts that need updating.</p>
+<h4>archive</h4>
+<p>Take the results and the code it was run on and dump it into a Git repo as a snapshot artifact of what was run. This is a good idea that no one used so I took it out to reduce complexity. It's also very close to what already happens for the deployment process so seemed potentially redundant.</p>
+<h4>parsing</h4>
+<ul>
+<li>TotalValidator, an accessibility tool</li>
+<li>PHPUnit coverage, a PHPUnit result that Rob refused to run because USS code was so broken that it fatally errored out &gt;:|</li>
+</ul>
+<h2>How is it used?</h2>
+<p>Check out the <a href="https://github.com/telusdigital/playbook-uss-consumer/blob/master/build/playbook.yml">USS Consumer Build server playbook</a> to see it in action:</p>
+<ul>
+<li>Build the code</li>
+<li>Test the code</li>
+<li>Reset the results aggregate</li>
+<li>Log the PHPUnit results</li>
+<li>Log the Git commit data</li>
+<li>Send an email of the results aggregate</li>
+</ul>
+<p>It's that easy!</p>
+    </div><!-- /.entry-content -->
+
+  </article>
+</section>
+        <section id="extras" class="body">
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>

@@ -16,3 +16,5 @@ Install `telusdigital.aws-infrastructure` via Ansible Galaxy and run the appropr
 When an EC2 Server starts, aws-infrastructure tell AWS to tell the server to download and run Forge. The infrastructure playbook will generate EC2 tags which tell Forge what playbooks to download and install. All roles are downloaded from Ansible Galaxy. Once Forge is done, you have a fully configured server.
 
 Enjoy!
+
+![Photo]({filename}/images/synergy.jpg)

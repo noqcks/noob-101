@@ -38,7 +38,13 @@
         </address>
 <p>In <a href="/category/skynet.html">skynet</a>.</p>
 
-</footer><!-- /.post-info -->                </article>
+</footer><!-- /.post-info --><h2>Locally</h2>
+<p>Skeleton and git-ready will help you create and modify roles and playbooks. You will commit these to your fork on GitHub and create a Pull Request to get the changed reviewed and finalized. Finalized changes should be synced to Forge's S3 Bucket and Ansible Galaxy, which is currently manual. Additionally, you may have to use GitHub to populate the Bucket if it doesn't exist.</p>
+<p>Install <code>telusdigital.aws-infrastructure</code> via Ansible Galaxy and run the appropriate playbook's <code>infrastructure.yml</code> to start creating a remote VPC.</p>
+<h2>Remote</h2>
+<p>When an EC2 Server starts, aws-infrastructure tell AWS to tell the server to download and run Forge. The infrastructure playbook will generate EC2 tags which tell Forge what playbooks to download and install. All roles are downloaded from Ansible Galaxy. Once Forge is done, you have a fully configured server.</p>
+<p>Enjoy!</p>
+<p><img alt="Photo" src="/images/synergy.jpg" /></p>                </article>
             </aside><!-- /#featured -->
                 <section id="content" class="body">
                     <h1>Other articles</h1>
@@ -74,6 +80,32 @@
 
             <li><article class="hentry">
                 <header>
+                    <h1><a href="/webchannel-ci.html" rel="bookmark"
+                           title="Permalink to Webchannel-ci">Webchannel-ci</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2015-07-15T12:33:00-07:00">
+                Published: Wed 15 July 2015
+        </abbr>
+		<br />
+        <abbr class="modified" title="2015-07-15T12:33:00-07:00">
+                Updated: Wed 15 July 2015
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/jscott.html">JScott</a>
+        </address>
+<p>In <a href="/category/brain-dump.html">Brain-Dump</a>.</p>
+
+</footer><!-- /.post-info -->                <p>How to use Webchannel-ci</p>
+                <a class="readmore" href="/webchannel-ci.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
                     <h1><a href="/playbooks.html" rel="bookmark"
                            title="Permalink to Playbooks">Playbooks</a></h1>
                 </header>
@@ -100,9 +132,6 @@
                 </div><!-- /.entry-content -->
             </article></li>
                 </ol><!-- /#posts-list -->
-<p class="paginator">
-    Page 1 / 1
-</p>
                 </section><!-- /#content -->
         <section id="extras" class="body">
         </section><!-- /#extras -->

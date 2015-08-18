@@ -22,7 +22,7 @@ Password => See your print-out
 
 Hopefully it works first-time(*fingers-crossed*). NOTE: For your username "TELUS\" _must be in front of your xid_ .
 
-### Step 3 
+### Step 3
 Open System Preferences,Internet Accounts
 Click on Exchange
 
@@ -41,4 +41,4 @@ User Name => TELUS\your xid
 Password => See your print-out
 Server Address => mail.telus.com
 
-Hopefully you are now all set up!
+Hopefully you are now all set up! If you want to be able to access your email account outside of the corpnet, you will need to request a TAS token.

@@ -51,16 +51,6 @@
 2. Clones the forked repositories locally.
 3. Configures an <code>upstream</code> remote for each repository, for convenient fetching.</p>
 <p>It can be run again without concern. It will only fork and clone missing repositories.</p>
-<h2>Example Workflow</h2>
-<ol>
-<li>Fork repository.</li>
-<li>Make changes.</li>
-<li>Test changes.</li>
-<li>Push changes to <code>origin</code></li>
-<li>Submit Pull Request to <code>upstream</code></li>
-<li>Code Review</li>
-<li>Merge</li>
-</ol>
 <h2>Installation</h2>
 <p><code>gem install git-ready</code></p>
 <p><code>git-ready telusdigital</code></p>
@@ -71,11 +61,11 @@
 <em> ~/.config/git-ready.yaml
 </em> ./git-ready.yaml</p>
 <p>These will be loaded in order, and any conflicting keys will be overwritten.</p>
-<p>If no configuration is found, git-ready will enter <em>Interactive Setup Mode</em>, and attempt to guide you through setup. It will prompt for your GitHub username and password, so it can issue itself an auth token (with <code>repo</code> scope only) for future use. This will be written to the configuration file.</p>
 <p>If your GitHub account uses 2-Factor Authentication, git-ready will prompt you for a 2FA token. If you don't have 2-Factor Authentication, get it....please.</p>
 <h2>OSX Installation Issues?</h2>
 <p>One of the gems used by git-ready (<a href="https://github.com/libgit2/rugged">Rugged</a>), requires <code>cmake</code> and <code>libgit2</code> to build. On OSX, this isn't installed by default, but can easily be resolved with <code>brew install cmake</code>, <code>brew install libgit2 --with-libssh2</code> .</p>
 <p>Also, private key has to be registered in keychain in order to repo cloning works.</p>
+<p>If you are still having problems, check the version of your OpenSSH. (<code>ssh -V</code>) Keychain support is in version 6.8</p>
     </div><!-- /.entry-content -->
 
   </article>

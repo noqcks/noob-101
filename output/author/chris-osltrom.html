@@ -22,74 +22,7 @@
 
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="/forge.html">Forge</a></h1>
-<footer class="post-info">
-        <abbr class="published" title="2015-07-15T12:17:00-07:00">
-                Published: Wed 15 July 2015
-        </abbr>
-		<br />
-        <abbr class="modified" title="2015-07-15T12:17:00-07:00">
-                Updated: Wed 15 July 2015
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/chris-osltrom.html">Chris Osltrom</a>
-                        <a class="url fn" href="/author/nikki-martinez.html">Nikki Martinez</a>
-        </address>
-<p>In <a href="/category/brain-dump.html">Brain-Dump</a>.</p>
-
-</footer><!-- /.post-info --><h1>forge</h1>
-<p>Convention-Driven Instance Autonomy for EC2</p>
-<h2>Description</h2>
-<p>Forge is designed to facilitate autonomous server configuration. At first boot, a server should execute the bootstrap code, which will in turn:
-<em> Install the tools required for the rest of the code, using pip.
-</em> Determine the purpose of the server, using a handful of AWS APIs.
-* Download any playbooks that are applicable to the server, install their dependent roles, and execute them.</p>
-<h2>Dependencies</h2>
-<p>Forge will fulfill its own dependencies, if <code>pip</code> is available. If it is not, the following python packages must be available.
-<em> <a href="https://github.com/ansible/ansible/">ansible</a>
-</em> <a href="https://aws.amazon.com/cli/">awscli</a>
-* <a href="https://boto.readthedocs.org/">boto</a></p>
-<h2>Requirements</h2>
-<ul>
-<li>An S3 bucket to store roles in.</li>
-<li>An IAM Role to apply to autonomous servers, with a <a href="https://github.com/colstrom/forge/blob/master/examples/policy.json">User Policy</a> granting access to the above bucket.</li>
-<li>(optional) One or more Ansible Roles in the bucket.</li>
-</ul>
-<h2>Self-Discovery via Conventions</h2>
-<p>Forge will attempt to figure out what needs to happen on its own. To do this, it relies on conventions enforced by the tools it was built to work alongside: <code>meta/infrastructure</code> and <code>superluminal</code>. If you are not using these tools, Forge should work without hassle as long as you follow similar conventions.</p>
-<p>An instance should have resource tags. Among these, we should expect to find:
-<em> <code>Project</code>: The project this instance belongs to.
-</em> <code>Role</code>: The purpose of this specific instance, within that project.
-<em> <code>ForgeBucket</code>: The name of the S3 bucket Forge should pull from.
-</em> <code>ForgeRegion</code>: Which region is ForgeBucket found in?</p>
-<p>If sufficient resource tags are not present, Forge will make reasonable guesses. It assumes security groups are named like <code>your-project-name-role</code>, and infers 'implicit tags' from this. Additional data can be provided via environment variables. If the instance has two security groups named <code>['your-project-name-application', 'your-project-name-managed']</code></p>
-<ul>
-<li>Project will be <code>'your-project-name'</code></li>
-<li>Role will be <code>['application', 'managed']</code> and both will be configured.</li>
-<li>ForgeBucket can be provided as <code>FORGE_BUCKET</code> in the environment.</li>
-<li>ForgeRegion can be provided as <code>FORGE_REGION</code> in the environment.</li>
-</ul>
-<p>Resource tags are considered explicit statements of intent, and discovery stops there. Everything else is a fallback.</p>
-<h2>How to Use (Hardcore Mode)</h2>
-<p>If you're cool with allowing arbitrary code from the internet to run with root privileges with no human oversight, you can do this:</p>
-<p><code>curl https://raw.githubusercontent.com/telusdigital/forge/master/bootstrap.py | sudo python</code></p>
-<h2>How to Use (Recommended)</h2>
-<p>If you'd prefer a more sane approach, upload <code>bootstrap.py</code> to somewhere you control.</p>
-<p><code>curl https://YOUR_URL_HERE/bootstrap.py | sudo python</code></p>                </article>
-            </aside><!-- /#featured -->
-                <section id="content" class="body">
-                    <h1>Other articles</h1>
-                    <hr />
-                    <ol id="posts-list" class="hfeed">
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/git-ready.html" rel="bookmark"
-                           title="Permalink to Git Ready">Git Ready</a></h1>
-                </header>
-
-                <div class="entry-content">
+                    <h1 class="entry-title"><a href="/git-ready.html">Git Ready</a></h1>
 <footer class="post-info">
         <abbr class="published" title="2015-07-15T12:13:00-07:00">
                 Published: Wed 15 July 2015
@@ -105,15 +38,30 @@
         </address>
 <p>In <a href="/category/brain-dump.html">Brain-Dump</a>.</p>
 
-</footer><!-- /.post-info -->                <p>How to use git-ready</p>
-                <a class="readmore" href="/git-ready.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-                </ol><!-- /#posts-list -->
-<p class="paginator">
-    Page 1 / 1
-</p>
-                </section><!-- /#content -->
+</footer><!-- /.post-info --><h1>git-ready</h1>
+<p>git-ready is a tool for quickly joining an organization on GitHub.</p>
+<h2>Description</h2>
+<p>git-ready does three things.
+1. Forks all repositories of the organization to your account.
+2. Clones the forked repositories locally.
+3. Configures an <code>upstream</code> remote for each repository, for convenient fetching.</p>
+<p>It can be run again without concern. It will only fork and clone missing repositories.</p>
+<h2>Installation</h2>
+<p><code>gem install git-ready</code></p>
+<p><code>git-ready telusdigital</code></p>
+<h2>Configuration</h2>
+<p>git-ready will search for configuration files in the following places:
+<em> /etc/git-ready.yaml
+</em> /usr/local/etc/git-ready.yaml
+<em> ~/.config/git-ready.yaml
+</em> ./git-ready.yaml</p>
+<p>These will be loaded in order, and any conflicting keys will be overwritten.</p>
+<p>If your GitHub account uses 2-Factor Authentication, git-ready will prompt you for a 2FA token. If you don't have 2-Factor Authentication, get it....please.</p>
+<h2>OSX Installation Issues?</h2>
+<p>One of the gems used by git-ready (<a href="https://github.com/libgit2/rugged">Rugged</a>), requires <code>cmake</code> and <code>libgit2</code> to build. On OSX, this isn't installed by default, but can easily be resolved with <code>brew install cmake</code>, <code>brew install libgit2 --with-libssh2</code> .</p>
+<p>Also, private key has to be registered in keychain in order to repo cloning works.</p>
+<p>If you are still having problems, check the version of your OpenSSH. (<code>ssh -V</code>) Keychain support is in version 6.8</p>                </article>
+            </aside><!-- /#featured -->
         <section id="extras" class="body">
         </section><!-- /#extras -->
 
