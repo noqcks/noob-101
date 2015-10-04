@@ -18,6 +18,6 @@ We are working on getting access to codeschool as well!
 GitHub
 ------------------
 
-Once mother-hen gives you access, we have a [gem](https://github.com/colstrom/git-ready "") for forking and cloning all the repos.
+Once mother-hen gives you access, we have a [gem](https://github.com/colstrom/git-ready) for forking and cloning all the repos.
 
 You may also need access to BitBucket.
