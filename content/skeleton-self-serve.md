@@ -14,7 +14,7 @@ A squence of shell scripts that create the file structure and commonalities of o
 
 How to use
 -----------
-`ruby playbook_skeleton {project_name} {required_system} {required_system} ...`
+`ruby skeleton.rb {project_name} {required_system} {required_system} ...`
 
 What it does
 ------------
